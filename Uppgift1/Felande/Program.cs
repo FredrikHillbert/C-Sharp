@@ -47,14 +47,14 @@ namespace Felande
             Console.WriteLine($"Här ser du ett flyttal representerat av variablen 'double': {decimaltal}");
             Console.WriteLine("Tryck på en knapp för att fortsätta...");
 
+            Console.ReadKey();
             int helttal = 30;
 
             Console.WriteLine();
             Console.WriteLine($"Här ser du ett heltal representerat av variablen 'heltal': {helttal}");
             Console.WriteLine("Tryck på en knapp för att fortsätta...");
             Console.ReadKey();
-
-            Console.ReadKey();
+;
         }
     }
 }
