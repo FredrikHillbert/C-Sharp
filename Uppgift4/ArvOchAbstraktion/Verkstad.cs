@@ -116,7 +116,7 @@ namespace ArvOchAbstraktion
 
                 }
 
-
+                  
                 else if (item.VehicleType == "Lastbil")
                 {
                     Vehicle anInstaceOfMyClass = new Vehicle();

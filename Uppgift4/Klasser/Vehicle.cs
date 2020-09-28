@@ -60,7 +60,7 @@ namespace Klasser
                 anInstanceOfMyClass.AddMotorCykelToList();
 
             }
-
+            
             else if (VehicleType == VehicleType)
             {
 
