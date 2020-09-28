@@ -11,7 +11,7 @@ namespace Klasser
         static void Main(string[] args)
         {
 
-            Console.WriteLine("Hello World!");
+            
         }
     }
 
