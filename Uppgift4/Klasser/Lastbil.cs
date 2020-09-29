@@ -26,41 +26,31 @@ namespace Klasser
 
         }
 
-        public Lastbil()
+
+
+        internal static void AddLastbil()
         {
-        }
-
-        public void AddTruckToList()
-        {
-            List<Vehicle> listOfVehicles = new List<Vehicle>();
-
-
-            Console.WriteLine("Skriv in regnummer för lastbilen: ");
-            string userInput = Console.ReadLine();
-            userInput = Registeringsnummer;
-
-            Console.WriteLine("Skriv in hur långt lastbilen har gått i km: ");
-            int userInputNumber = int.Parse(Console.ReadLine());
-            userInputNumber = Matare;
-
-            Console.WriteLine("Skriv in regdatum för lastbilen: ");
-            userInput = Console.ReadLine();
-            userInput = Registeringsdatum;
-
-            Console.WriteLine("Skriv in maxlastet för lastbilen i kg: ");
-            int userInputNumber2 = int.Parse(Console.ReadLine());
-            userInputNumber2 = GetMaxLast();
 
 
 
-
-
-            listOfVehicles.Add(new Lastbil(VehicleType, ModellNamn, Registeringsnummer, Matare, Registeringsdatum, GetMaxLast()));
 
 
 
         }
 
 
-        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
 }

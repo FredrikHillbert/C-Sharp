@@ -8,7 +8,8 @@ namespace ArvOchAbstraktion
         static void Main(string[] args)
         {
 
-            Console.WriteLine("Hej och välkommen till verkstaden, börja med att klicka på enter och välj sedan om du vill lägga till ett fordon eller ta bort ett existerande fordon");
+            Console.WriteLine("Hej och välkommen till verkstaden " +
+                "börja med att klicka på enter och välj sedan om du vill lägga till ett fordon eller ta bort ett existerande fordon");
 
             Console.ReadLine();
 
@@ -16,55 +17,57 @@ namespace ArvOchAbstraktion
             IMyInterface verkstaden = new Verkstad();
 
 
+         
 
-
-            bool UserInputTrue = true;
-
-
-            while (UserInputTrue)
+            while (true)
             {
-                
-
-                Console.Clear();
-
                 int userInput;
 
-                Console.WriteLine("1) Välj att skapa ett nytt fordon");
-
-                Console.WriteLine("2) Välj att ta bort ett befintligt fordon");
-
-                Console.WriteLine("3) Välj att se alla existerande fordon i verkstaden");
-
-                Console.WriteLine("4) Avsluta programmet");
-
+                Console.WriteLine("1) Lägg till en nytt fordon");
+                Console.WriteLine("2) Ta bort ett existerande fordon");
                 userInput = int.Parse(Console.ReadLine());
+
+
+
+
 
                 switch (userInput)
                 {
-                    case 1:
-                        verkstaden.AddVehicle();
 
+                    case 1:
+                        Vehicle.AddSpecificVehicle();
                         break;
 
                     case 2:
-                        verkstaden.DeleteVehicle();
+                        Vehicle.DeleteSpecificVehicle();
                         break;
-                    case 3:
-                        verkstaden.ShowVehicle();
-
-                        break;
-
-
-                    case 4:
-
-                        break;
-
 
                 }
 
 
 
+
+
+
+
+
+
+
+
             }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
             }

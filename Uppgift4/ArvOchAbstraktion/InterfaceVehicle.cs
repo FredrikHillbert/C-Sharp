@@ -8,13 +8,13 @@ namespace ArvOchAbstraktion
     interface IMyInterface
     {
 
-        
+        public  void AddVehicle();
 
-        void AddVehicle();
+        public void DeleteVehicle();
 
-        void DeleteVehicle();
 
-        void ShowVehicle();
-        List<Vehicle> ShowVehicleList();
+
+
+       
     }
 }

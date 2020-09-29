@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace Klasser
 {
    public class Vehicle
     {
-        public object MaxFart;
-        public object TowBar;
-        public object MaxLast;
-        public object antalPassagerare;
-
+        private List<Vehicle> vehicles = new List<Vehicle>();
         public string VehicleType { get; set; }
         public string ModellNamn { get; set; }
         public string Registeringsnummer { get; set; }
@@ -30,59 +27,87 @@ namespace Klasser
 
         }
 
-        public Vehicle(string vehicleType)
+       
+        public static void AddSpecificVehicle()
         {
-            this.VehicleType = vehicleType;
+            string userInput;
+            Console.WriteLine("Vad är det för fordon? ");
+            userInput = Console.ReadLine();
+
+            if (userInput == "Bil")
+            {
+
+                Bil.AddCar();
+
+            }
+
+
+            if (userInput == "Motorcykel")
+            {
+
+                Motorcykel.AddMotorcykel();
+
+            }
+
+
+            if (userInput == "Lastbil")
+            {
+
+                Lastbil.AddLastbil();
+
+            }
+
+
+            if (userInput == "Buss")
+            {
+
+                Buss.AddBuss();
+
+            }
         }
 
-        public Vehicle()
+
+        public static void DeleteSpecificVehicle()
         {
+
+
 
         }
 
 
-        public void VehicleStats()
+
+        
+        public static void ShowVehicles()
         {
 
-            if (VehicleType == VehicleType)
-            {
-
-                Bil anInstanceOfMyClass = new Bil();
-
-                anInstanceOfMyClass.AddCarToList();
-
-            }
-
-            else if (VehicleType == VehicleType)
-            {
-
-                Motorcykel anInstanceOfMyClass = new Motorcykel();
-                anInstanceOfMyClass.AddMotorCykelToList();
-
-            }
-            
-            else if (VehicleType == VehicleType)
-            {
-
-                Lastbil anInstanceOfMyClass = new Lastbil();
-                anInstanceOfMyClass.AddTruckToList();
-
-            }
-
-            else if (VehicleType == VehicleType)
+            foreach (var item in )
             {
 
 
-                Buss anInstanceOfMyClass = new Buss();
-                anInstanceOfMyClass.AddBussToList();
 
 
-            }
-            else
-            {
-                Console.WriteLine("Du skrev inte in ett fordon");
+
+
+
+
 
             }
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         }
@@ -102,5 +127,5 @@ namespace Klasser
 
 
 
-}
+
 

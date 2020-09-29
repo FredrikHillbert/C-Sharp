@@ -27,52 +27,61 @@ namespace Klasser
 
         }
 
-        public Bil()
+       private static List<Vehicle> vehicles = new List<Vehicle>();
+        internal static void AddCar()
         {
-        }
+            string userInputFordon, userInputModell, userInputRegnr, userInputDatum, userInputTowBarText = "";
+            int userInputMatare;
+            bool userInputTowbar = false;
+            Console.WriteLine("Stämmer det att det är en bil du vill lägga til?");
+            userInputFordon = Console.ReadLine();
 
-        public void AddCarToList()
-        {
-            List<Vehicle> listOfVehicles = new List<Vehicle>();
-
-
-            Console.WriteLine("Skriv in regnummer för bilen: ");
-            string userInput = Console.ReadLine();
-            userInput = Registeringsnummer;
-
-            Console.WriteLine("Skriv in hur långt bilen har gått i km: ");
-             int userInputNumber = int.Parse (Console.ReadLine());
-            userInputNumber = Matare;           
-
-            Console.WriteLine("Skriv in regdatum för bilen: ");
-             userInput = Console.ReadLine();
-            userInput = Registeringsdatum;
-
-            Console.WriteLine("Har bilen en dragkrok? (Ja/Nej): ");
-             userInput = Console.ReadLine();
-             
-
-            if (userInput == "Ja" || userInput == "ja")
+                if (userInputFordon == "Ja")
             {
 
-                SetTowBar(true);
+                userInputFordon = "Bil";
+            }
 
-                
+            Console.WriteLine("vad är det för modell på bilen?");
+            userInputModell = Console.ReadLine();
+
+            Console.WriteLine("vad är det för registeringsnummer på bilen?");
+            userInputRegnr = Console.ReadLine();
+
+            Console.WriteLine("vad står mätaren på bilen på i km?");
+            userInputMatare = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("När registrerades bilen (datum)?");
+            userInputDatum = Console.ReadLine();
+
+            Console.WriteLine("Har bilen en dragkrok?");
+            userInputTowBarText = Console.ReadLine();
+
+            if (userInputTowBarText =="Ja")
+            {
+                userInputTowbar = true;
+
             }
             else
             {
+                userInputTowbar = false;
 
-                SetTowBar(false);
-               
             }
 
-
-            listOfVehicles.Add(new Bil(VehicleType, ModellNamn, Registeringsnummer, Matare, Registeringsdatum, GetTowBar()));
-
-
-
             
+
+            vehicles.Add(new Bil(userInputFordon, userInputModell, userInputRegnr, userInputMatare, userInputDatum, userInputTowbar));
+            
+
         }
+
+        
+
+
+
+        }
+
+
 
         
 
