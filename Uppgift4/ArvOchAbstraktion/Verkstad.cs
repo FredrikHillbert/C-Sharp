@@ -82,7 +82,7 @@ namespace ArvOchAbstraktion
 
         public void ShowVehicle()
         {
-            throw new NotImplementedException();
+            ShowVehicleList();
         }
 
         public List<Vehicle> ShowVehicleList()
@@ -98,7 +98,7 @@ namespace ArvOchAbstraktion
                 Console.WriteLine($"Registreringsdatumet är: {item.Registeringsdatum}");
                 Console.WriteLine($"Kilometer mätaren står på: {item.Matare}");
 
-                  if (item.VehicleType == "Motorcykel")
+                if (item.VehicleType == "Motorcykel")
                 {
                     Vehicle anInstaceOfMyClass = new Vehicle();
                     Console.WriteLine($"Det här är hojjens maxhastighet: {item.MaxFart}");
@@ -107,7 +107,7 @@ namespace ArvOchAbstraktion
                 }
 
 
-               else if (item.VehicleType == "Bil")
+                else if (item.VehicleType == "Bil")
                 {
                     Vehicle anInstaceOfMyClass = new Vehicle();
                     Console.WriteLine($"Det finns en dragkrok på bilen: {item.TowBar}");
@@ -116,7 +116,7 @@ namespace ArvOchAbstraktion
 
                 }
 
-                  
+
                 else if (item.VehicleType == "Lastbil")
                 {
                     Vehicle anInstaceOfMyClass = new Vehicle();
@@ -130,15 +130,17 @@ namespace ArvOchAbstraktion
                 {
                     Vehicle anInstaceOfMyClass = new Vehicle();
                     Console.WriteLine($"antal passagerare som får plats är: {item.antalPassagerare}");
+
                     return (List<Vehicle>)item.antalPassagerare;
-                    
+
+
 
                 }
 
-                return listOfVehicles;
+
 
             }
-
+            return listOfVehicles;
         }
 
         
