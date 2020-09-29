@@ -6,28 +6,26 @@ using System.Text;
 
 namespace Klasser
 {
-    class Bil : Vehicle
+    public class Bil : Vehicle
     {
-        private bool towBar;
 
-        public bool GetTowBar()
-        {
-            return towBar;
-        }
 
-        public void SetTowBar(bool value)
-        {
-            towBar = value;
-        }
 
-        public Bil(string vehicleType, string modellNamn, string registeringsnummer, int matare, string registeringsdatum, bool towbar) : base( vehicleType, modellNamn, registeringsnummer, matare, registeringsdatum)
+
+        public Bil(string vehicleType, string modellNamn, string registeringsnummer, int matare, string registeringsdatum, bool towbar) : base(vehicleType, modellNamn, registeringsnummer, matare, registeringsdatum)
         {
 
-            this.SetTowBar(towbar);
+            _haveTowBar = towbar;
 
         }
 
-       private static List<Vehicle> vehicles = new List<Vehicle>();
+       public static List<Bil> bilar = new List<Bil>();
+
+
+
+
+
+
         internal static void AddCar()
         {
             string userInputFordon, userInputModell, userInputRegnr, userInputDatum, userInputTowBarText = "";
@@ -40,6 +38,12 @@ namespace Klasser
             {
 
                 userInputFordon = "Bil";
+            }
+
+                else
+            {
+
+                //gå tillbaka
             }
 
             Console.WriteLine("vad är det för modell på bilen?");
@@ -59,32 +63,87 @@ namespace Klasser
 
             if (userInputTowBarText =="Ja")
             {
+
                 userInputTowbar = true;
+
 
             }
             else
             {
                 userInputTowbar = false;
-
             }
 
             
 
-            vehicles.Add(new Bil(userInputFordon, userInputModell, userInputRegnr, userInputMatare, userInputDatum, userInputTowbar));
+            bilar.Add(new Bil(userInputFordon, userInputModell, userInputRegnr, userInputMatare, userInputDatum, userInputTowbar ));
             
 
         }
 
         
 
+        internal static List<Bil> ShowCar()
+        {
+
+
+           
+
+                foreach (var item in bilar)
+                {
+                
+                    Console.WriteLine($"Detta är en bil");
+
+                    Console.WriteLine($"Fordonet är av modellen {item.ModellNamn}");
+
+                    Console.WriteLine($"Milmätaren står på {item.Matare}");
+
+                    Console.WriteLine($"Fordonet registrerades {item.Registeringsdatum}");
+
+                    Console.WriteLine($"Fordonets registreringsnummer är: {item.Registeringsnummer}");
+
+                if (item._haveTowBar == true)
+                {
+                    Console.WriteLine("Bilen har en dragkrok");
+
+                }             
+
+                else
+                {
+                    Console.WriteLine("Bilen har inte en dragkrok");
+                }
+
+                }
+
+            Console.WriteLine("\t----------------------");
+
+
+                return bilar;
+
+
+            }
 
 
         }
 
 
 
+
+        }
+
+
+
+
+
+
+
+
+
+      
+
+
+
         
 
 
-    }
-}
+    
+

@@ -5,15 +5,16 @@ using System.Text;
 
 namespace Klasser
 {
-   public class Vehicle
+    public class Vehicle
     {
         private List<Vehicle> vehicles = new List<Vehicle>();
-        public string VehicleType { get; set; }
+       public string VehicleType { get; set; }
         public string ModellNamn { get; set; }
         public string Registeringsnummer { get; set; }
         public int Matare { get; set; }
         public string Registeringsdatum { get; set; }
-        
+
+        internal bool _haveTowBar;
 
         public Vehicle(string vehicleType, string modellNamn, string registeringsnummer, int matare, string registeringsdatum)
         {
@@ -22,12 +23,18 @@ namespace Klasser
             this.Registeringsdatum = registeringsdatum;
             this.Registeringsnummer = registeringsnummer;
             this.Matare = matare;
-            this.VehicleType = vehicleType;
+           
+
+        }
+
+        public Vehicle()
+        {
 
 
         }
 
-       
+
+
         public static void AddSpecificVehicle()
         {
             string userInput;
@@ -76,36 +83,18 @@ namespace Klasser
 
 
 
-        
+
+
         public static void ShowVehicles()
         {
 
-            foreach (var item in )
-            {
+            Bil.ShowCar();
 
+            Buss.ShowBuss();
 
+            Lastbil.ShowLastbil();
 
-
-
-
-
-
-
-            }
-
-
-        }
-
-
-
-
-
-
-
-
-
-
-
+            Motorcykel.ShowMotorcykel();
 
 
 
@@ -120,6 +109,7 @@ namespace Klasser
 
 
     }
+}
     
 
 

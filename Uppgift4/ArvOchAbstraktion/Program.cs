@@ -14,7 +14,7 @@ namespace ArvOchAbstraktion
             Console.ReadLine();
 
 
-            IMyInterface verkstaden = new Verkstad();
+            IMyInterface verkstaden = new Verkstaden();
 
 
          
@@ -25,21 +25,26 @@ namespace ArvOchAbstraktion
 
                 Console.WriteLine("1) Lägg till en nytt fordon");
                 Console.WriteLine("2) Ta bort ett existerande fordon");
+                Console.WriteLine("3) Visa alla fordon i en lista");
                 userInput = int.Parse(Console.ReadLine());
 
 
-
+               
 
 
                 switch (userInput)
                 {
-
+                    
                     case 1:
-                        Vehicle.AddSpecificVehicle();
+                        verkstaden.AddVehicle();
                         break;
 
                     case 2:
-                        Vehicle.DeleteSpecificVehicle();
+                        verkstaden.DeleteVehicle();
+                        break;
+
+                    case 3:
+                        verkstaden.ShowVehicle();
                         break;
 
                 }
