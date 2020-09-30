@@ -5,8 +5,8 @@ namespace Villkor_och_loopar
 {
 
     /// <summary>
-    
-       
+
+
     /// 
     /// </summary>
     class Program
@@ -35,16 +35,16 @@ namespace Villkor_och_loopar
             bool maratonInmatning = true;
 
 
-            int vinnadeTidTimmar=0;
-            int vinnadeTidMinut=0;
-            int vinnadeTidSek=0;
+            int vinnadeTidTimmar = 0;
+            int vinnadeTidMinut = 0;
+            int vinnadeTidSek = 0;
             //räknar vinnare
 
 
             int antalDeltagare = 0;
             //räknar deltagare
 
-            
+
 
 
             while (maratonInmatning)
@@ -53,7 +53,7 @@ namespace Villkor_och_loopar
 
                 startNummer = int.Parse(Console.ReadLine());
 
-                  if (startNummer < 1)
+                if (startNummer < 1)
                 {
                     maratonInmatning = false;
 
@@ -66,7 +66,7 @@ namespace Villkor_och_loopar
 
                 startTimme = int.Parse(Console.ReadLine());
 
-               
+
 
 
                 Console.Write("Ange minut för start: ");
@@ -77,15 +77,15 @@ namespace Villkor_och_loopar
 
                 startSekund = int.Parse(Console.ReadLine());
 
-                
-                
-                
+
+
+
                 Console.Write("Ange timme för mål: ");
 
                 malTimme = int.Parse(Console.ReadLine());
 
 
-         
+
 
 
 
@@ -106,7 +106,7 @@ namespace Villkor_och_loopar
                 //uträkning om omvandling till sek 
 
 
-                
+
                 startTimme = startTimme * 3600;
                 startMinut = startMinut * 60;
 
@@ -122,7 +122,7 @@ namespace Villkor_och_loopar
 
 
 
-              
+
 
 
 
@@ -149,22 +149,27 @@ namespace Villkor_och_loopar
 
 
 
-                    if (timmeMålLedare < timmeStartLedare)
+                    if (timmeMålLedare == 0)
                     {
 
-                        
-
-                        vinnadeTidTimmar = (23 + timmeMålLedare) - (timmeStartLedare);
+                        vinnadeTidTimmar = (24) - (timmeStartLedare);
 
                     }
 
-                    else
+                    else if (timmeMålLedare < timmeStartLedare)
+                    {
+
+                        vinnadeTidTimmar = (24 + timmeMålLedare) - (timmeStartLedare);
+
+                    }
+
+                    if (timmeMålLedare > timmeStartLedare)
                     {
 
                         vinnadeTidTimmar = timmeMålLedare - timmeStartLedare;
 
                     }
-                   
+
                     if (minutMålLedare < minutStartLedare)
                     {
 
@@ -194,25 +199,11 @@ namespace Villkor_och_loopar
 
                     }
 
-                    
-
 
 
                 }
 
-                
-                
-
-
-       
-
-
                 antalDeltagare++;
-
-
-                
-
-
 
             }
 
@@ -228,5 +219,7 @@ namespace Villkor_och_loopar
 
 
         }
+
     }
 }
+ 
