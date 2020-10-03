@@ -8,22 +8,21 @@ namespace ArvOchAbstraktion
 
         class Verkstaden : IMyInterface
         {
-            string userInputText;
-
-            // för att kunna nå mina vehicle klasser. 
-            public Vehicle vehicle = new Vehicle(vehicleType: "", modellNamn: "", registeringsnummer: "", matare: 0, registeringsdatum: "");
-
-            public void AddVehicle()
+          
+    
+        public void AddVehicle()
             {
             Vehicle vehicle = new Vehicle();
-
-            Vehicle.AddSpecificVehicle();
+           
+            vehicle.AddSpecificVehicle();
 
             }
-            public void DeleteVehicle()
-            {
 
-                Vehicle.DeleteSpecificVehicle();
+         public void DeleteVehicle()
+            {
+            
+
+            Vehicle.DeleteSpecificVehicle();
 
             }
 

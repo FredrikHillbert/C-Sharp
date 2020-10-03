@@ -30,7 +30,7 @@ namespace Klasser
             Console.WriteLine("Stämmer det att det är en Buss du vill lägga til?");
             userInputFordon = Console.ReadLine();
 
-            if (userInputFordon == "Ja")
+            if (userInputFordon.ToLower() == "Ja")
             {
 
                 userInputFordon = "Buss";
@@ -39,8 +39,9 @@ namespace Klasser
             else
             {
 
-                //gå tillbaka
+               //Vehicle.AddSpecificVehicle();
             }
+            Console.Clear();
 
             Console.WriteLine("vad är det för modell på bussen?");
             userInputModell = Console.ReadLine();
