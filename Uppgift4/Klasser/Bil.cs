@@ -10,7 +10,7 @@ namespace Klasser
     {
 
 
-
+        private bool _haveTowBar;
 
         public Bil(string vehicleType, string modellNamn, string registeringsnummer, int matare, string registeringsdatum, bool towbar) : base(vehicleType, modellNamn, registeringsnummer, matare, registeringsdatum)
         {
@@ -26,59 +26,7 @@ namespace Klasser
 
 
 
-        internal static void AddCar()
-        {
-            string userInputFordon, userInputModell, userInputRegnr, userInputDatum, userInputTowBarText = "";
-            int userInputMatare;
-            bool userInputTowbar = false;
-            Console.WriteLine("Stämmer det att det är en bil du vill lägga til?");
-            userInputFordon = Console.ReadLine();
-
-                if (userInputFordon == "Ja")
-            {
-
-                userInputFordon = "Bil";
-            }
-
-                else
-            {
-
-                //gå tillbaka
-            }
-
-            Console.WriteLine("vad är det för modell på bilen?");
-            userInputModell = Console.ReadLine();
-
-            Console.WriteLine("vad är det för registeringsnummer på bilen?");
-            userInputRegnr = Console.ReadLine();
-
-            Console.WriteLine("vad står mätaren på bilen på i km?");
-            userInputMatare = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("När registrerades bilen (datum)?");
-            userInputDatum = Console.ReadLine();
-
-            Console.WriteLine("Har bilen en dragkrok?");
-            userInputTowBarText = Console.ReadLine();
-
-            if (userInputTowBarText =="Ja")
-            {
-
-                userInputTowbar = true;
-
-
-            }
-            else
-            {
-                userInputTowbar = false;
-            }
-
-            
-
-            bilar.Add(new Bil(userInputFordon, userInputModell, userInputRegnr, userInputMatare, userInputDatum, userInputTowbar ));
-            
-
-        }
+       
 
         
 

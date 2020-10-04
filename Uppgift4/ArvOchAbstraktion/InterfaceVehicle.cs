@@ -5,14 +5,14 @@ using System.Text;
 
 namespace ArvOchAbstraktion
 {
-    interface IMyInterface
+   public interface IMyInterface
     {
 
-        public void AddVehicle();
+       void AddVehicle();
 
-        public void DeleteVehicle();
+         void DeleteVehicle();
 
-        public void ShowVehicle();
+         void ShowVehicle();
 
 
        

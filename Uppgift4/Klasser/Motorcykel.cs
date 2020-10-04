@@ -29,7 +29,7 @@ namespace Klasser
             Console.WriteLine("Stämmer det att det är en motorcykel du vill lägga til?");
             userInputFordon = Console.ReadLine();
 
-            if (userInputFordon == "Ja")
+            if (userInputFordon.ToLower() == "Ja")
             {
 
                 userInputFordon = "Motorcykel";
@@ -38,8 +38,10 @@ namespace Klasser
             else
             {
 
-                //gå tillbaka
+                //AddSpecificVehicle();
             }
+
+            Console.Clear();
 
             Console.WriteLine("vad är det för modell på motorcykeln?");
             userInputModell = Console.ReadLine();
