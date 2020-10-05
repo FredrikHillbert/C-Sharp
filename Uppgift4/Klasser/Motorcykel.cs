@@ -6,7 +6,7 @@ namespace Klasser
 {
     class Motorcykel : Vehicle
     {
-        private int MaxFart { get; set; }
+        public int MaxFart { get; set; }
 
         public Motorcykel(string vehicleType, string modellNamn, string registeringsnummer, int matare, string registeringsdatum, int maxFart) : base(vehicleType, modellNamn, registeringsnummer, matare, registeringsdatum)
         {
@@ -15,8 +15,11 @@ namespace Klasser
 
         }
 
+        public Motorcykel(int maxFart)
+        {
 
-        
+            this.MaxFart = maxFart;
+        }
 
         public static List<Motorcykel> motorcykels = new List<Motorcykel>();
 

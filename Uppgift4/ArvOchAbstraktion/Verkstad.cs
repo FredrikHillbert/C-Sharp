@@ -6,39 +6,72 @@ using Klasser;
 namespace ArvOchAbstraktion
 {
 
-        class Verkstaden : IMyInterface
+    class Verkstaden : IMyInterface
+    {
+        private List<Vehicle> _vehicles;
+        public List<Vehicle> vehicles 
+        
+        
+        
         {
-          
-    
-        public void AddVehicle()
+            get
             {
-            Vehicle vehicle = new Vehicle();
-           
-            vehicle.AddSpecificVehicle();
+                if (_vehicles == null)
+                {
+                    _vehicles = new List<Vehicle>();
 
+                }
+                return _vehicles;
             }
-
-         public void DeleteVehicle()
+           
+            set
             {
+                _vehicles = value;
+            }
+        }
+        
+        public bool AddVehicle(Vehicle vehicle)
+        {
+            bool vehicleAdded = true;
+            vehicles.Add(vehicle);
+
+            return vehicleAdded;
             
 
-            Vehicle.DeleteSpecificVehicle();
+        }
 
-            }
-
-
-        public void ShowVehicle()
+        public void DeleteVehicle(Vehicle vehicle)
         {
 
+            vehicles.Remove(vehicle);
 
-            Vehicle.ShowVehicles();
+            Console.WriteLine($"Fordon {vehicle.TypeOfVehicle()} "
+                +$"med registreringsnumret {vehicle.Registeringsnummer}" +
+                $"togs bort från listan");
+        }
 
+        public List<Vehicle> ShowVehicle()
+        {
+
+            return vehicles;
 
         }
 
 
 
-        }
+
+
+
+
+
+
+
+
+
+
+
+
+    }
 
 
     }

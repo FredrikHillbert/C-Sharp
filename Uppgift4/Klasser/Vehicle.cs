@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Globalization;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
@@ -7,18 +10,20 @@ namespace Klasser
 {
     public class Vehicle
     {
-        public List<Vehicle> vehicles = new List<Vehicle>();
-       public string VehicleType { get; set; }
+        public static List<Vehicle> vehicles = new List<Vehicle>();
+        
+       
         public string ModellNamn { get; set; }
         public string Registeringsnummer { get; set; }
         public int Matare { get; set; }
         public string Registeringsdatum { get; set; }
 
-        public string _userInputFordon;
+        protected string _userInputFordon;
+        
 
         public Vehicle(string vehicleType, string modellNamn, string registeringsnummer, int matare, string registeringsdatum)
         {
-
+            this._userInputFordon = vehicleType;
             this.ModellNamn = modellNamn;
             this.Registeringsdatum = registeringsdatum;
             this.Registeringsnummer = registeringsnummer;
@@ -29,13 +34,9 @@ namespace Klasser
 
         public Vehicle()
         {
-
-
         }
 
-
-
-        public static void DeleteSpecificVehicle()
+        public  void DeleteSpecificVehicle()
         {
 
 
@@ -43,107 +44,101 @@ namespace Klasser
         }
 
 
+       
+
+        //public void AddVehicle()
+        //{
+        //    string userInputFordonType, userInputModelType, userInputRegnummer, userInputDate, userInputTowBar;
+        //    int userInputMatare, userInputToppFart, userInputMaxLast, userInputAntalPass;
+        //    bool haveTowBar = true;
+
+        //    bool addingVehicle = true;
+        //    while (addingVehicle)
+        //    {
+
+        //        Console.WriteLine($"Du har valt att lägga till en {_userInputFordon}, stämmer det j/n");
+        //        userInputFordonType = Console.ReadLine();
+        //        if (userInputFordonType.ToLower() == "n")
+        //        {
+        //            Console.WriteLine("Klicka enter för att gå tillbaka till första sidan");
+        //            Console.ReadKey();
+        //            break;
+
+
+        //        }
+
+        //        Console.WriteLine($"Vad är det för modell på din {_userInputFordon}: ");
+        //        userInputModelType = Console.ReadLine();
+        //        Console.WriteLine($"Vad har din {_userInputFordon} för registreringsnummer?: ");
+        //        userInputRegnummer = Console.ReadLine();
+        //        Console.WriteLine($"Vilket datum registerades din {_userInputFordon}");
+        //        userInputDate = Console.ReadLine();
+        //        Console.WriteLine($"Vad står milmätare på, på din {_userInputFordon}");
+        //        int.TryParse(Console.ReadLine(), out userInputMatare);
+
+        //        if (_userInputFordon == "bil")
+        //        {
+
+        //            Console.WriteLine("Har din bil en dragkrok? j/n");
+        //            userInputTowBar = Console.ReadLine();
+        //            if (userInputTowBar == "j")
+        //            {
 
 
 
-        public static void ShowVehicles()
-        {
+        //                haveTowBar = true;
 
-            Bil.ShowCar();
+        //                vehicles.Add(new Bil(_userInputFordon, userInputModelType, userInputRegnummer, userInputMatare, userInputDate, haveTowBar));
 
-            Buss.ShowBuss();
+        //            }
 
-            Lastbil.ShowLastbil();
+        //            else if (userInputTowBar == "n")
+        //            {
 
-            Motorcykel.ShowMotorcykel();
+        //                haveTowBar = false;
 
-
-
-
-        }
+        //                vehicles.Add(new Bil(_userInputFordon, userInputModelType, userInputRegnummer, userInputMatare, userInputDate, haveTowBar));
 
 
+        //            }
+        //        }
 
-        public void AddSpecificVehicle()
-        {
-            Console.Clear();
 
-            
-            Console.WriteLine("Vad är det för fordon? ");
-            Console.WriteLine("1) Bil");
-            Console.WriteLine("2) Motorcykel");
-            Console.WriteLine("3) Lastbil");
-            Console.WriteLine("4) Buss");
-            Console.WriteLine("5) Gå tillbaka till första sidan");
+
+
+
+        //        if (_userInputFordon == "motorcykel")
+        //        {
+
+        //            Console.WriteLine("Vad har motorcykeln för topphastighet");
+        //            int.TryParse(Console.ReadLine(), out userInputToppFart);
+        //            vehicles.Add(new Motorcykel(_userInputFordon, userInputModelType, userInputRegnummer, userInputMatare, userInputDate, userInputToppFart));
+        //        }
+
+        //        if (_userInputFordon == "lastbil")
+        //        {
+
+        //            Console.WriteLine("Vad är maxlasten för lastbilen");
+        //            int.TryParse(Console.ReadLine(), out userInputMaxLast);
+
+        //            vehicles.Add(new Lastbil(_userInputFordon, userInputModelType, userInputRegnummer, userInputMatare, userInputDate, userInputMaxLast));
+
+        //        }
+
+        //        if (_userInputFordon == "buss")
+        //        {
+        //            Console.WriteLine("Hur många antal platser tar bussen");
+        //            int.TryParse(Console.ReadLine(), out userInputAntalPass);
+
+        //            vehicles.Add(new Buss(_userInputFordon, userInputModelType, userInputRegnummer, userInputMatare, userInputDate, userInputAntalPass));
+
+        //        }
+
+
+        //    }
+
 
            
-            int.TryParse(Console.ReadLine(), out int userInput);
-
-
-            switch (userInput)
-            {
-
-
-                case 1:
-                    _userInputFordon = "bil";
-                    AddVehicle();
-
-                    break;
-                   
-                case 2:
-                    _userInputFordon = "motorcykel";
-                    AddVehicle();
-
-                    break;
-
-                case 3:
-                    _userInputFordon = "lastbil";
-                    AddVehicle();
-
-                    break;
-
-                case 4:
-                    _userInputFordon = "buss";
-                    AddVehicle();
-
-                    break;
-
-                case 5:
-                    break;
-
-                 
-            }
-
-
-
-
-
-        }
-
-        public void AddVehicle()
-        {
-            Console.WriteLine($"Du har valt att lägga till en {_userInputFordon}, stämmer det j/n");
-            string userInputFordonType = Console.ReadLine();
-            if (userInputFordonType.ToLower() == "n")
-            {
-
-                AddSpecificVehicle();
-
-            }
-
-
-             
-            Console.WriteLine($"Vad är det för modell på din {_userInputFordon}: ");
-            string userInputModelType = Console.ReadLine();
-
-
-            // Gör så för alla vanliga frågor 
-
-            // säg sedan if _userInputFordon och gör det specifika valen för det olika 
-
-            // lägg sedan allt i en och samma lista vehicals och sedan skriv ut den :D 
-
-            // Allt kan då vara i samma lista :DDDDDDD
             
 
 
@@ -161,74 +156,45 @@ namespace Klasser
 
 
 
-        }
+        //}
 
 
 
-
-
-
-
-
-
-
-        private static void AddCar()
+        public virtual void ShowVehicles()
         {
 
-            List<Vehicle> vehicles = new List<Vehicle>();
-            string userInputFordon, userInputModell, userInputRegnr, userInputDatum, userInputTowBarText = "";
-            int userInputMatare;
-            bool userInputTowbar = false;
-            Console.WriteLine("Stämmer det att det är en bil du vill lägga til?");
-            userInputFordon = Console.ReadLine();
-
-            if (userInputFordon.ToLower() == "Ja")
-            {
-
-                userInputFordon = "Bil";
-            }
-
-            else if(userInputFordon.ToLower() == "nej")
-            {
-
-                //AddSpecificVehicle();
-            }
-            Console.Clear();
-            Console.WriteLine("vad är det för modell på bilen?");
-            userInputModell = Console.ReadLine();
-
-            Console.WriteLine("vad är det för registeringsnummer på bilen?");
-            userInputRegnr = Console.ReadLine();
-
-            Console.WriteLine("vad står mätaren på bilen på i km?");
-            userInputMatare = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("När registrerades bilen (datum)?");
-            userInputDatum = Console.ReadLine();
-
-            Console.WriteLine("Har bilen en dragkrok?");
-            userInputTowBarText = Console.ReadLine();
-
-            if (userInputTowBarText == "Ja")
-            {
-
-                userInputTowbar = true;
 
 
-            }
-            else
-            {
-                userInputTowbar = false;
-            }
-
-           
-
-            vehicles.Add(new Bil(userInputFordon, userInputModell, userInputRegnr, userInputMatare, userInputDatum, userInputTowbar));
+            Console.WriteLine($"Detta är en {_userInputFordon}");
+            Console.WriteLine($"Den var registrerad {Registeringsdatum}");
+            Console.WriteLine($"Den har registreringsnumret: {Registeringsnummer}");
+            Console.WriteLine($"Milmätaren står på: {Matare}");
 
 
         }
 
 
+        public string TypeOfVehicle()
+        {
+
+            return _userInputFordon;
+        }
+
+
+        
+
+
+
+
+
+
+
+
+
+
+   
+        
+          
 
 
 
@@ -239,7 +205,81 @@ namespace Klasser
 
     }
 }
-    
+
+
+
+
+
+
+
+//public  List<Vehicle> ShowVehicles()
+//    {
+
+//    foreach (var item in vehicles)
+//        {
+
+
+//         Console.WriteLine($"Detta är en {item.UserInputFordon}");
+
+//        Console.WriteLine($"Fordonet är av modellen {item.ModellNamn}");
+
+//        Console.WriteLine($"Milmätaren står på {item.Matare}");
+
+//        Console.WriteLine($"Fordonet registrerades {item.Registeringsdatum}");
+
+//        Console.WriteLine($"Fordonets registreringsnummer är: {item.Registeringsnummer}");
+
+
+//            if (item.UserInputFordon == "bil")
+//            {
+//                Bil bil = new Bil(true);
+//                if (bil.HaveTowBar)
+//                {
+//                    Console.WriteLine("Bilen har en dragkrok");
+//                }
+
+
+
+
+
+//            }
+
+
+
+
+//                if (item.UserInputFordon == "motorcykel")
+//                {
+//                    Motorcykel motorcykel = new Motorcykel(maxFart:40);
+
+//                    Console.WriteLine($"Topphastigheten för hojjen är: {motorcykel.MaxFart}");
+
+//                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+//            //Testa att göra if här också för varje olika grejer du vill få fram 
+//            //inom if satsen kan jag kalla Bil bil = new bil()
+
+
+//            Console.WriteLine("\t----------------------");
+//        }
+
+
+
+//    return vehicles;
+
+//}
+
 
 
 

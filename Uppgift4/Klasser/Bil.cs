@@ -10,26 +10,54 @@ namespace Klasser
     {
 
 
-        private bool _haveTowBar;
+        public bool HaveTowBar { get; set; }
 
-        public Bil(string vehicleType, string modellNamn, string registeringsnummer, int matare, string registeringsdatum, bool towbar) : base(vehicleType, modellNamn, registeringsnummer, matare, registeringsdatum)
+   
+        public Bil()
         {
+            _userInputFordon = "Bil";
+        }
 
-            _haveTowBar = towbar;
+        public override void ShowVehicles()
+        {
+            base.ShowVehicles();
+
+            if (HaveTowBar)
+            {
+
+                Console.WriteLine("Bilen har en dragkrok");
+            }
+            else
+            {
+                Console.WriteLine("Bilen har inte en dragkrok");
+            }
+
+
+
 
         }
 
-       public static List<Bil> bilar = new List<Bil>();
 
 
 
 
 
 
-       
 
-        
 
+
+
+
+
+
+
+
+
+
+
+
+
+        public static List<Bil> bilar = new List<Bil>();
         internal static List<Bil> ShowCar()
         {
 
@@ -49,7 +77,7 @@ namespace Klasser
 
                     Console.WriteLine($"Fordonets registreringsnummer är: {item.Registeringsnummer}");
 
-                if (item._haveTowBar == true)
+                if (item.HaveTowBar == true)
                 {
                     Console.WriteLine("Bilen har en dragkrok");
 
