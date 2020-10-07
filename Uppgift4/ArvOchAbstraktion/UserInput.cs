@@ -75,7 +75,7 @@ namespace ArvOchAbstraktion
         private static bool ReadBoolean(string whatToTurnTrueOrFalse)
         {
             
-            bool isTrue = false;
+            bool isTrue = true;
             bool settingBool = true;
 
             do
@@ -129,7 +129,7 @@ namespace ArvOchAbstraktion
                 else if (userValue < 0)
                 {
 
-                    Console.WriteLine("Du måste skriva in ett tal som är större eller lika ned noll");
+                    Console.WriteLine("Du måste skriva in ett tal som är större eller lika med noll");
                 }
 
                 else
@@ -179,7 +179,7 @@ namespace ArvOchAbstraktion
                     string userInput = Console.ReadLine().ToLower();
                     if (userInput == "j")
                     {
-                        
+
                         isAddingNewCar = false;
                         userAnswer = false;
                         break;
@@ -188,10 +188,13 @@ namespace ArvOchAbstraktion
                     }
 
                     else if (string.IsNullOrEmpty(userInput))
-                    {
 
+                    {
                         Console.WriteLine("Du måste svara på frågan");
                     }
+
+                    
+                    
 
 
 
@@ -205,7 +208,77 @@ namespace ArvOchAbstraktion
 
 
 
+        public static Vehicle AddMotorcykel()
+        {
+            var motorcykel = new Motorcykel();
+            bool isAddingBike = true;
 
+
+            while (isAddingBike)
+            {
+                Console.Clear();
+
+
+                motorcykel.ModellNamn = CreateName("Skriv in modellnamn:");
+                motorcykel.Registeringsdatum = DateTime.Now.ToString("yyyy/MM/dd");
+                motorcykel.Registeringsnummer = CreateLicensePlate("Skriv in regnummer");
+                motorcykel.Matare = ReadInt("Vad står milmätaren på i KM");
+                motorcykel.MaxFart = ReadInt("Vad är maxfarten för hojjen?");
+
+
+                motorcykel.ShowVehicles();
+
+               
+
+                bool userAnswer = true;
+
+                do
+                {
+
+                    Console.WriteLine("Stämmer dessa uppgifter? j/n ");
+                    string userInput = Console.ReadLine();
+
+                    if (userInput.ToLower() == "j")
+                    {
+
+                        isAddingBike = false;
+                        userAnswer = false;
+                        break;
+
+
+                    }
+
+                    else if (userInput.ToLower() == "n")
+                    {
+
+                        
+                        Console.WriteLine("Du valde att detta var fel info, testa att lägga till motorcykeln igen, du behöver inte lägga till alla andra.");
+                        isAddingBike = false;
+                        userAnswer = false;
+                        Vehicle.Clear();
+
+                        
+                        break;
+                    }
+
+
+                    else if (string.IsNullOrEmpty(userInput))
+                    {
+                        Console.WriteLine("Du måste antingen skriva 'j' eller 'n'");
+                    }
+
+
+                } while (userAnswer);
+
+            }
+            return motorcykel;
+
+
+
+
+
+
+        }
 
 
 

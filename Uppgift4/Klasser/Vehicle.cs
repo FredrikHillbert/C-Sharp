@@ -180,29 +180,10 @@ namespace Klasser
             return _userInputFordon;
         }
 
-
-        
-
-
-
-
-
-
-
-
-
-
-   
-        
-          
-
-
-
-
-
-
-
-
+        public static void Clear()
+        {
+            vehicles.Clear();
+        }
     }
 }
 

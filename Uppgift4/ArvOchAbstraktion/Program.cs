@@ -50,6 +50,7 @@ namespace ArvOchAbstraktion
 
                                     Console.WriteLine("En bil är tillagd i verkstaden!");
                                     Console.WriteLine("Klicka på enter för att gå vidare.");
+                                    userAddingVehicle = false;
                                     Console.ReadKey();
                                    
                                     break;
@@ -57,8 +58,14 @@ namespace ArvOchAbstraktion
                                 case 2:
 
                                     //motorcykel
+                                    var addBike = UserInput.AddMotorcykel();
 
+                                    verkstaden.AddVehicle(addBike);
 
+                                    Console.WriteLine("\n En motorcykel är tillagd i verstaden!");
+                                    Console.WriteLine("\n Klicka 'Enter' för att gå vidare.");
+                                    userAddingVehicle = false;
+                                    Console.ReadKey();
                                     break;
 
                                 case 3:
@@ -94,7 +101,7 @@ namespace ArvOchAbstraktion
 
 
                 case 3:
-
+                        //en loop för att visa alla fordon.
                         foreach (var item in verkstaden.ShowVehicle())
                         {
 
@@ -102,6 +109,8 @@ namespace ArvOchAbstraktion
 
                         }
 
+                        Console.WriteLine("Klicka på enter för att gå vidare...");
+                        
                         Console.ReadKey();
 
 

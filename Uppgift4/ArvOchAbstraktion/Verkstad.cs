@@ -9,7 +9,7 @@ namespace ArvOchAbstraktion
     class Verkstaden : IMyInterface
     {
         private List<Vehicle> _vehicles;
-        public List<Vehicle> vehicles 
+        public List<Vehicle> Vehicles 
         
         
         
@@ -33,7 +33,7 @@ namespace ArvOchAbstraktion
         public bool AddVehicle(Vehicle vehicle)
         {
             bool vehicleAdded = true;
-            vehicles.Add(vehicle);
+            Vehicles.Add(vehicle);
 
             return vehicleAdded;
             
@@ -43,7 +43,7 @@ namespace ArvOchAbstraktion
         public void DeleteVehicle(Vehicle vehicle)
         {
 
-            vehicles.Remove(vehicle);
+            Vehicles.Remove(vehicle);
 
             Console.WriteLine($"Fordon {vehicle.TypeOfVehicle()} "
                 +$"med registreringsnumret {vehicle.Registeringsnummer}" +
@@ -53,11 +53,11 @@ namespace ArvOchAbstraktion
         public List<Vehicle> ShowVehicle()
         {
 
-            return vehicles;
+            return Vehicles;
 
         }
 
-
+        
 
 
 
